@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #fbfaf6;
+  --color-ink: #121633;
+  --color-ink-soft: #4a4f6a;
+  --color-line: #e6e3da;
+  --color-brand: #3b3fd8;
+  --color-brand-dark: #2a2db0;
+  --color-brand-soft: #ecedff;
+  --color-accent: #ff7a45;
+  --color-accent-soft: #fff0e8;
+  --color-mint: #1f9d74;
+  --color-mint-soft: #e5f6ef;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bricolage);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Hide the default disclosure marker on <summary> */
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;
+}

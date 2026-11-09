@@ -1,0 +1,36 @@
+import { Footer, WhatsAppFloat } from "./_components/footer";
+import { Header } from "./_components/header";
+import { Hero } from "./_components/hero";
+import {
+  Audience,
+  BookCall,
+  Build,
+  Certificate,
+  ClassFormat,
+  Course,
+  Curriculum,
+  Faq,
+  Resources,
+} from "./_components/sections";
+
+export default function Home() {
+  return (
+    <>
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <Audience />
+        <Course />
+        <Curriculum />
+        <Build />
+        <ClassFormat />
+        <Certificate />
+        <Resources />
+        <Faq />
+        <BookCall />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+    </>
+  );
+}
