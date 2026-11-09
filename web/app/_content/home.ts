@@ -5,6 +5,8 @@ export const site = {
   name: "The PM Lab",
   // Cashfree payment page for enrolling in the course.
   enrollUrl: "https://payments.cashfree.com/forms/project-management-course",
+  // Course fee in rupees. The page shows the discount % automatically.
+  price: { original: 2499, offer: 999 },
   // PLACEHOLDER: real WhatsApp number in international format, digits only.
   whatsappNumber: "918485881130",
   email: "hello@thepmlab.in", // PLACEHOLDER

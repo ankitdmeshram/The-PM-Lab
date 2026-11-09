@@ -17,6 +17,11 @@ import { ArrowIcon, CheckIcon, PlusIcon, WhatsAppIcon, audienceIcons } from "./i
 import { LogoMark } from "./logo";
 import { UpdatesForm } from "./updates-form";
 
+/** Formats rupees, e.g. 2499 -> "₹2,499". */
+export function formatPrice(amount: number) {
+  return `₹${amount.toLocaleString("en-IN")}`;
+}
+
 function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
@@ -101,11 +106,21 @@ export function Course() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-7 flex flex-wrap items-end gap-x-3 gap-y-1 border-t border-line pt-6">
+                <span className="font-display text-4xl font-bold">{formatPrice(site.price.offer)}</span>
+                <span className="pb-1 text-lg text-ink-soft line-through">{formatPrice(site.price.original)}</span>
+                <span className="mb-1.5 rounded-full bg-mint-soft px-2.5 py-1 text-xs font-bold text-mint">
+                  Save {Math.round((1 - site.price.offer / site.price.original) * 100)}%
+                </span>
+              </div>
+              <p className="mt-1 text-sm text-ink-soft">One-time fee for the full 8-week course</p>
+
               <a
                 href={site.enrollUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition-colors hover:bg-brand-dark"
+                className="mt-5 flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition-colors hover:bg-brand-dark"
               >
                 Enroll now
                 <ArrowIcon className="h-4 w-4" />
