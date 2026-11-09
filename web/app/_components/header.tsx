@@ -56,12 +56,12 @@ export function Header() {
               >
                 Enroll now
               </a>
-              <a
-                href="#updates"
+              <Link
+                href="/#updates"
                 className="mt-1 block rounded-xl px-3 py-2.5 text-center text-sm font-medium hover:bg-paper"
               >
                 Get daily updates
-              </a>
+              </Link>
             </div>
           </details>
         </div>

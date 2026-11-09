@@ -18,11 +18,11 @@ export const site = {
 };
 
 export const nav = [
-  { label: "Who it's for", href: "#audience" },
-  { label: "Course", href: "#course" },
-  { label: "Curriculum", href: "#curriculum" },
-  { label: "Certificate", href: "#certificate" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Who it's for", href: "/#audience" },
+  { label: "Course", href: "/#course" },
+  { label: "Curriculum", href: "/#curriculum" },
+  { label: "Certificate", href: "/#certificate" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 // Facts shown under the hero buttons.
@@ -355,6 +355,12 @@ export const dailyUpdates = {
     "New batch dates and course announcements",
   ],
 };
+
+export const legalLinks = [
+  { label: "Refund Policy", href: "/refund-policy" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+];
 
 // Options for the "I am a…" dropdown in the updates form.
 export const enquiryStatuses = [

@@ -107,7 +107,11 @@ export function UpdatesForm() {
       </div>
       <label className="mt-1 flex items-start gap-2.5 text-sm text-ink-soft">
         <input type="checkbox" name="consent" required className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--color-brand)]" />
-        I agree to receive daily updates from {site.name} on WhatsApp. I can reply STOP at any time.
+        <span>
+          I agree to receive daily updates from {site.name} on WhatsApp and to the{" "}
+          <a href="/privacy" target="_blank" className="underline hover:text-ink">Privacy Policy</a>. I can
+          reply STOP at any time.
+        </span>
       </label>
       <button
         type="submit"

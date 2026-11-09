@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { nav, site } from "../_content/home";
+import { legalLinks, nav, site } from "../_content/home";
 import { WhatsAppIcon } from "./icons";
 import { LogoBadge } from "./logo";
 
 export function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
         <div>
           <Link href="/" className="inline-block" aria-label={site.name}>
             <LogoBadge className="h-24 w-24 rounded-full" />
@@ -21,6 +21,16 @@ export function Footer() {
             {nav.map((n) => (
               <li key={n.href}>
                 <a href={n.href} className="hover:text-ink">{n.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="text-sm font-semibold">Legal</p>
+          <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
+            {legalLinks.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-ink">{l.label}</Link>
               </li>
             ))}
           </ul>

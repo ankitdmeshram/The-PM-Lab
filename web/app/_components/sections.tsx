@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   assessment,
   audiences,
@@ -125,9 +126,15 @@ export function Course() {
                 Enroll now
                 <ArrowIcon className="h-4 w-4" />
               </a>
+              <p className="mt-3 text-center text-xs text-ink-soft">
+                By enrolling, you agree to our{" "}
+                <Link href="/terms" className="underline hover:text-ink">Terms</Link> and{" "}
+                <Link href="/refund-policy" className="underline hover:text-ink">Refund Policy</Link> (fees are
+                non-refundable).
+              </p>
               <a
                 href="#updates"
-                className="mt-3 block text-center text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
+                className="mt-4 block text-center text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
               >
                 Not ready yet? Get batch updates on WhatsApp
               </a>
