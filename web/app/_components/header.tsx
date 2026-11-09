@@ -1,9 +1,23 @@
 import Link from "next/link";
-import { nav, site } from "../_content/home";
+import { site } from "../_content/home";
+import { homeNav } from "../_content/landing";
 import { MenuIcon } from "./icons";
 import { LogoMark } from "./logo";
 
-export function Header() {
+type NavItem = { label: string; href: string };
+type Cta = { label: string; href: string; external?: boolean };
+
+/** Site header. Defaults to the site-wide menu; each course page passes its own. */
+export function Header({
+  nav = homeNav,
+  cta = { label: "Explore courses", href: "/#courses" },
+  updatesHref = "/#updates",
+}: {
+  nav?: NavItem[];
+  cta?: Cta;
+  updatesHref?: string;
+} = {}) {
+  const ctaProps = cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
@@ -22,12 +36,11 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={site.enrollUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={cta.href}
+            {...ctaProps}
             className="hidden rounded-full bg-brand px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark sm:inline-block"
           >
-            Enroll now
+            {cta.label}
           </a>
 
           {/* Mobile menu: native <details> so no client JS is needed */}
@@ -49,15 +62,14 @@ export function Header() {
                 </a>
               ))}
               <a
-                href={site.enrollUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={cta.href}
+                {...ctaProps}
                 className="mt-1 block rounded-xl bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white"
               >
-                Enroll now
+                {cta.label}
               </a>
               <Link
-                href="/#updates"
+                href={updatesHref}
                 className="mt-1 block rounded-xl px-3 py-2.5 text-center text-sm font-medium hover:bg-paper"
               >
                 Get daily updates

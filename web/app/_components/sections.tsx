@@ -23,7 +23,7 @@ export function formatPrice(amount: number) {
   return `₹${amount.toLocaleString("en-IN")}`;
 }
 
-function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) {
+export function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
       <p className="text-sm font-semibold uppercase tracking-widest text-accent">{eyebrow}</p>
@@ -453,13 +453,13 @@ export function Roles() {
 }
 
 /* ---------- FAQ ---------- */
-export function Faq() {
+export function Faq({ items = faqs }: { items?: { q: string; a: string }[] } = {}) {
   return (
     <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <SectionHeading eyebrow="FAQ" title="Questions we get asked a lot" />
         <div className="mt-12 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
+          {items.map((f) => (
             <details key={f.q} className="group py-5">
               <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-lg font-semibold">
                 {f.q}
@@ -475,7 +475,13 @@ export function Faq() {
 }
 
 /* ---------- WhatsApp daily updates sign-up ---------- */
-export function DailyUpdates() {
+export function DailyUpdates({
+  content = dailyUpdates,
+  course = "Project Management",
+}: {
+  content?: { title: string; body: string; points: string[] };
+  course?: string;
+} = {}) {
   return (
     <section id="updates" className="scroll-mt-20 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -487,11 +493,11 @@ export function DailyUpdates() {
               Daily updates
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              {dailyUpdates.title}
+              {content.title}
             </h2>
-            <p className="mt-4 text-lg text-white/70">{dailyUpdates.body}</p>
+            <p className="mt-4 text-lg text-white/70">{content.body}</p>
             <ul className="mt-7 space-y-3">
-              {dailyUpdates.points.map((p) => (
+              {content.points.map((p) => (
                 <li key={p} className="flex items-start gap-3">
                   <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-[#25d366]" />
                   <span className="text-white/90">{p}</span>
@@ -501,7 +507,7 @@ export function DailyUpdates() {
             <p className="mt-7 text-sm text-white/50">One message a day. Reply STOP anytime to unsubscribe.</p>
           </div>
 
-          <UpdatesForm />
+          <UpdatesForm course={course} />
         </div>
       </div>
     </section>

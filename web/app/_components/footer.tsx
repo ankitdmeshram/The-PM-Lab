@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { legalLinks, nav, site } from "../_content/home";
+import { courseLinks, legalLinks, site } from "../_content/home";
 import { WhatsAppIcon } from "./icons";
 import { LogoBadge } from "./logo";
 
@@ -12,15 +12,15 @@ export function Footer() {
             <LogoBadge className="h-24 w-24 rounded-full" />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft">
-            Project management training for college students and early-career professionals.
+            Practical, live training in project management and AI full stack development for college students and freshers.
           </p>
         </div>
         <div>
-          <p className="text-sm font-semibold">Explore</p>
+          <p className="text-sm font-semibold">Courses</p>
           <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
-            {nav.map((n) => (
-              <li key={n.href}>
-                <a href={n.href} className="hover:text-ink">{n.label}</a>
+            {courseLinks.map((c) => (
+              <li key={c.href}>
+                <Link href={c.href} className="hover:text-ink">{c.label}</Link>
               </li>
             ))}
           </ul>

@@ -13,9 +13,9 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The PM Lab | Project Management Training for College Students & Freshers",
+  title: "The PM Lab | Practical Tech Training for College Students & Freshers",
   description:
-    "Live, mentor-led project management training for college students and early-career professionals. Agile, Scrum, JIRA, real projects and placement support.",
+    "Live, hands-on courses in Hinglish for college students and freshers: Project Management and AI Full Stack Development, with real projects and career preparation.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

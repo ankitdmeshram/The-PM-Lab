@@ -13,7 +13,7 @@ type Status = "idle" | "sending" | "done" | "error";
  * the details are saved to your Google Sheet. If it's empty, the form opens WhatsApp
  * with the details pre-filled so no sign-up is lost.
  */
-export function UpdatesForm() {
+export function UpdatesForm({ course }: { course: string }) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -24,10 +24,11 @@ export function UpdatesForm() {
       whatsapp: String(form.get("whatsapp") ?? "").trim(),
       status: String(form.get("status") ?? ""),
       source: "website",
+      course,
     };
 
     if (!site.updatesFormEndpoint) {
-      const text = `Hi! Please add me to The PM Lab daily updates.\nName: ${lead.name}\nWhatsApp: ${lead.whatsapp}\nI am a: ${lead.status}`;
+      const text = `Hi! Please add me to The PM Lab daily updates (${course}).\nName: ${lead.name}\nWhatsApp: ${lead.whatsapp}\nI am a: ${lead.status}`;
       window.open(`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
       setStatus("done");
       return;

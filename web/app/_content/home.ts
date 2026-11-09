@@ -18,11 +18,12 @@ export const site = {
 };
 
 export const nav = [
-  { label: "Who it's for", href: "/#audience" },
-  { label: "Course", href: "/#course" },
-  { label: "Curriculum", href: "/#curriculum" },
-  { label: "Certificate", href: "/#certificate" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Who it's for", href: "/ai-project-management#audience" },
+  { label: "Course", href: "/ai-project-management#course" },
+  { label: "Curriculum", href: "/ai-project-management#curriculum" },
+  { label: "Certificate", href: "/ai-project-management#certificate" },
+  { label: "FAQ", href: "/ai-project-management#faq" },
+  { label: "AI Full Stack", href: "/ai-full-stack-developer" },
 ];
 
 // Facts shown under the hero buttons.
@@ -357,6 +358,11 @@ export const dailyUpdates = {
     "New batch dates and course announcements",
   ],
 };
+
+export const courseLinks = [
+  { label: "Project Management", href: "/ai-project-management" },
+  { label: "AI Full Stack Development", href: "/ai-full-stack-developer" },
+];
 
 export const legalLinks = [
   { label: "Refund Policy", href: "/refund-policy" },
