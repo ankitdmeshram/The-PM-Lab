@@ -21,7 +21,7 @@ export const nav = [
 // Facts shown under the hero buttons.
 export const stats = [
   { value: "8 weeks", label: "Live virtual programme" },
-  { value: "40 hrs", label: "Instructor-led training" },
+  { value: "40+ hours", label: "Instructor-led training" },
   { value: "Hinglish", label: "Easy-to-follow classes" },
 ];
 
@@ -53,13 +53,13 @@ export const course = {
     "Not just a Jira or Scrum course. You'll learn how to actually manage a project: planning, assigning work, handling delays, communicating with stakeholders, managing risks and delivering outcomes.",
   facts: [
     { value: "8", label: "Weeks" },
-    { value: "40", label: "Hours of live training" },
+    { value: "40+", label: "Hours of live training" },
     { value: "24 + 2", label: "Classes + capstone workshops" },
     { value: "90–120", label: "Minutes per class" },
   ],
   highlights: [
     "8-week live virtual programme",
-    "40 hours of instructor-led training",
+    "40+ hours of instructor-led training",
     "24 core classes + 2 capstone workshops",
     "Taught in Hinglish",
     "Hands-on Jira and PM tools",
@@ -188,13 +188,14 @@ export const deliverables = [
   "Stakeholder communication plan",
   "Weekly status report",
   "Project closure report",
+  "Capstone presentation deck",
 ];
 
 export const tools = [
   { name: "Jira", use: "Task and sprint management" },
   { name: "Confluence", use: "Project documentation" },
   { name: "Excel / Google Sheets", use: "Planning and reporting" },
-  { name: "Trello", use: "Kanban and task tracking" },
+  { name: "Asana", use: "Task and project tracking" },
 ];
 
 // Five-step format for each class (timings shown are for a 90-minute class).
@@ -242,12 +243,98 @@ export const faqs = [
     a: "All 26 sessions are live and online: 24 core classes of 90–120 minutes each, plus two 2-hour capstone workshops. Around 60% of the time is hands-on practice.",
   },
   {
-    q: "Is the certificate a PMP or PMI certification?",
-    a: "No. You receive a course completion certificate from The PM Lab. It is a training certificate, not a PMP, CAPM or other PMI certification.",
+    q: "Will I get a certificate?",
+    a: "Yes. You receive a course completion certificate from The PM Lab when you attend at least 75% of classes, complete 6 of 8 weekly assignments, and submit your capstone project and final presentation.",
   },
   {
     q: "Do you guarantee a job?",
     a: "No, we don't promise jobs. Week 8 is dedicated to career preparation: PM career paths, common interview questions, real-world scenarios and a mock PM interview.",
+  },
+];
+
+// Career ladder shown in the "Career paths" section, from entry level to leadership.
+// "years" are typical ranges, not rules.
+export const careerLevels = [
+  {
+    step: "Start here",
+    stage: "Entry level",
+    years: "0–2 years",
+    roles: [
+      {
+        title: "Project Coordinator",
+        body: "Support the project manager: track tasks, update plans, schedule meetings and send status reports.",
+      },
+      {
+        title: "Project Analyst",
+        body: "Maintain plans and trackers, analyse project data and prepare reports that help managers make decisions.",
+      },
+      {
+        title: "PMO Analyst",
+        body: "Keep projects visible across the organisation with dashboards, risk logs, reports and documentation.",
+      },
+      {
+        title: "Junior Scrum Master",
+        body: "Run sprint ceremonies, manage the board, remove blockers and help an Agile team deliver every sprint.",
+      },
+      {
+        title: "Agile Project Associate",
+        body: "Help Kanban and hybrid teams plan work, manage boards, run stand-ups and keep delivery flowing.",
+      },
+      {
+        title: "Delivery Coordinator",
+        body: "Track delivery for client projects in IT services: schedules, client updates, team capacity and handovers.",
+      },
+      {
+        title: "Implementation Associate",
+        body: "Roll out software or solutions for clients, managing timelines, requirements and go-live handovers.",
+      },
+      {
+        title: "Program Coordinator",
+        body: "Support several related projects at once with combined reporting, meetings, risks and documentation.",
+      },
+      {
+        title: "Junior Business Analyst",
+        body: "Gather requirements, write user stories and connect business teams with developers.",
+      },
+    ],
+  },
+  {
+    step: "Grow into",
+    stage: "Mid level",
+    years: "2–5 years",
+    roles: [
+      {
+        title: "Associate Project Manager",
+        body: "Own smaller projects or workstreams end to end, from scope and timelines to stakeholders and delivery.",
+      },
+      {
+        title: "Scrum Master",
+        body: "Coach an Agile team in Scrum, protect the sprint, remove blockers and keep improving how the team works.",
+      },
+      {
+        title: "Associate Product Manager",
+        body: "Work with users, designers and engineers to plan features, prioritise the backlog and ship releases.",
+      },
+    ],
+  },
+  {
+    step: "Lead",
+    stage: "Senior level",
+    years: "5+ years",
+    roles: [
+      {
+        title: "Project Manager",
+        body: "Lead projects end to end: scope, budget and timelines, the team, stakeholders and final delivery.",
+      },
+      {
+        title: "Project Leader",
+        body: "Lead large projects or several teams, set direction, manage senior stakeholders and mentor other PMs.",
+      },
+      {
+        title: "Program Manager",
+        body: "Oversee a group of related projects, align them with business goals and manage budgets, risks and leadership reporting.",
+      },
+    ],
   },
 ];
 

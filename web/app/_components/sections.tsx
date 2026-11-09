@@ -9,10 +9,11 @@ import {
   deliverables,
   enquiryStatuses,
   faqs,
+  careerLevels,
   site,
   tools,
 } from "../_content/home";
-import { ArrowIcon, CheckIcon, PlusIcon, WhatsAppIcon, audienceIcons } from "./icons";
+import { ArrowIcon, CheckIcon, LogoMark, PlusIcon, WhatsAppIcon, audienceIcons } from "./icons";
 
 function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) {
   return (
@@ -272,38 +273,38 @@ export function Certificate() {
           body="Your certificate is based on the work you do throughout the course, not a single exam."
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          <div className="rounded-3xl border border-line bg-paper p-8">
-            <h3 className="font-display text-xl font-bold">How you&apos;re assessed</h3>
-            <ul className="mt-6 space-y-5">
-              {assessment.map((a) => (
-                <li key={a.label}>
-                  <div className="flex justify-between text-sm font-medium">
-                    <span>{a.label}</span>
-                    <span className="font-display font-bold">{a.weight}%</span>
-                  </div>
-                  <div className="mt-2 h-2 rounded-full bg-line">
-                    <div className="h-2 rounded-full bg-brand" style={{ width: `${a.weight * (100 / 30)}%` }} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
+          <CertificatePreview />
 
-          <div className="rounded-3xl border border-line bg-paper p-8">
+          <div>
             <h3 className="font-display text-xl font-bold">To earn your certificate</h3>
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {certificateRules.map((r) => (
-                <li key={r} className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3.5 font-medium">
-                  <CheckIcon className="h-5 w-5 shrink-0 text-mint" />
+                <li key={r} className="flex items-start gap-3 rounded-2xl border border-line bg-paper p-4 text-[15px] font-medium">
+                  <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-mint" />
                   {r}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm leading-relaxed text-ink-soft">
-              This is a training certificate issued by {site.name}. It is not a PMP, CAPM or other PMI
-              certification.
-            </p>
+
+            <h3 className="mt-10 font-display text-xl font-bold">How you&apos;re assessed</h3>
+            {/* One bar that adds up to 100%, so each part is shown at its true size */}
+            <div className="mt-5 flex h-3 gap-1 overflow-hidden rounded-full">
+              {assessment.map((a, i) => (
+                <div key={a.label} className={assessmentTones[i]} style={{ width: `${a.weight}%` }} />
+              ))}
+            </div>
+            <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4">
+              {assessment.map((a, i) => (
+                <li key={a.label} className="flex items-start gap-3">
+                  <span className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${assessmentTones[i]}`} />
+                  <span>
+                    <span className="block font-display text-xl font-bold">{a.weight}%</span>
+                    <span className="text-sm text-ink-soft">{a.label}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -311,36 +312,142 @@ export function Certificate() {
   );
 }
 
-/* ---------- Free resource (lead magnet) ---------- */
-export function Resources() {
+const assessmentTones = ["bg-brand", "bg-accent", "bg-mint", "bg-ink"];
+
+/** Illustration of the certificate learners receive. */
+function CertificatePreview() {
   return (
-    <section id="resources" className="scroll-mt-20 py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid items-center gap-8 rounded-3xl border border-line bg-white p-8 sm:p-10 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand">Free resource</p>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight">
-              The Fresher&apos;s PM Starter Kit
-            </h2>
-            <p className="mt-3 text-ink-soft">
-              A PM resume template, project charter, RACI matrix and the most common PM interview questions.
-              Free, sent to your inbox.
-            </p>
+    <div className="relative mx-auto w-full max-w-xl">
+      <div aria-hidden className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-brand/15 via-accent/10 to-transparent blur-2xl" />
+      <div className="-rotate-1 rounded-3xl bg-white p-3 shadow-2xl shadow-ink/10 ring-1 ring-line">
+        <div className="relative overflow-hidden rounded-2xl border-2 border-brand/20 px-6 py-8 text-center sm:px-10 sm:py-10">
+          {/* corner accents */}
+          <span aria-hidden className="absolute left-3 top-3 h-6 w-6 rounded-tl-lg border-l-2 border-t-2 border-accent" />
+          <span aria-hidden className="absolute right-3 top-3 h-6 w-6 rounded-tr-lg border-r-2 border-t-2 border-accent" />
+          <span aria-hidden className="absolute bottom-3 left-3 h-6 w-6 rounded-bl-lg border-b-2 border-l-2 border-accent" />
+          <span aria-hidden className="absolute bottom-3 right-3 h-6 w-6 rounded-br-lg border-b-2 border-r-2 border-accent" />
+
+          <div className="flex items-center justify-center gap-2">
+            <LogoMark className="h-7 w-7 text-ink" />
+            <span className="font-display font-bold">{site.name}</span>
           </div>
-          {/* TODO: connect to your email tool (e.g. Mailchimp, ConvertKit) or a server action */}
-          <form className="flex flex-col gap-3 sm:flex-row">
-            <label htmlFor="kit-email" className="sr-only">Email address</label>
-            <input
-              id="kit-email"
-              type="email"
-              required
-              placeholder="you@email.com"
-              className="h-12 flex-1 rounded-full border border-line bg-paper px-5 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
-            />
-            <button type="submit" className="h-12 rounded-full bg-brand px-6 font-semibold text-white transition-colors hover:bg-brand-dark">
-              Send me the kit
-            </button>
-          </form>
+          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-ink-soft">
+            Certificate of completion
+          </p>
+          <p className="mt-4 text-sm text-ink-soft">This is to certify that</p>
+          <p className="mt-2 font-display text-3xl font-bold text-brand sm:text-4xl">Your Name</p>
+          <div className="mx-auto mt-2 h-px w-48 bg-line" />
+          <p className="mt-4 text-sm text-ink-soft">has successfully completed</p>
+          <p className="mx-auto mt-1 max-w-sm font-display text-lg font-bold leading-snug">{course.title}</p>
+          <p className="mt-2 text-xs text-ink-soft">8 weeks · 40+ hours of live training · Capstone project</p>
+
+          <div className="mt-8 flex items-end justify-between text-left">
+            <div>
+              <div className="h-px w-24 bg-ink/30" />
+              <p className="mt-1.5 text-[11px] text-ink-soft">Lead Instructor</p>
+            </div>
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg shadow-accent/30">
+              <CheckIcon className="h-7 w-7" />
+            </span>
+            <div className="text-right">
+              <div className="ml-auto h-px w-24 bg-ink/30" />
+              <p className="mt-1.5 text-[11px] text-ink-soft">Date</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Career ladder: entry level to leadership ---------- */
+export function Roles() {
+  // One style per level: step colour, step height (desktop) and accent text.
+  const levels = [
+    { step: "bg-mint", height: "lg:h-20", text: "text-mint", soft: "bg-mint-soft" },
+    { step: "bg-brand", height: "lg:h-32", text: "text-brand", soft: "bg-brand-soft" },
+    { step: "bg-accent", height: "lg:h-44", text: "text-accent", soft: "bg-accent-soft" },
+  ];
+  return (
+    <section id="roles" className="scroll-mt-20 py-20 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeading
+          eyebrow="Career paths"
+          title="Start your career, then grow into leadership"
+          body="This course gets you ready for entry-level roles. From there, experience takes you to project manager and beyond."
+        />
+
+        <div className="mt-14 grid items-start gap-8 lg:grid-cols-3 lg:grid-rows-[auto_1fr] lg:gap-5">
+          {careerLevels.map((level, i) => {
+            const tone = levels[i];
+            return (
+              <div key={level.stage} className={`flex flex-col ${i === 0 ? "lg:row-span-2" : ""}`}>
+                {/* The step: grows taller at each level on desktop */}
+                <div className="flex lg:h-44 lg:items-end">
+                  <div
+                    className={`relative flex w-full items-end justify-between gap-3 rounded-t-2xl px-5 py-4 text-white ${tone.step} ${tone.height}`}
+                  >
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-white/75">
+                        Level {i + 1} · {level.years}
+                      </p>
+                      <p className="mt-1 font-display text-2xl font-bold">{level.step}</p>
+                    </div>
+                    <span className="font-display text-5xl font-bold leading-none text-white/25">{i + 1}</span>
+                  </div>
+                </div>
+
+                {/* Roles at this level */}
+                <div className="rounded-b-2xl border border-t-0 border-line bg-white">
+                  <p className={`px-5 pt-4 text-xs font-semibold uppercase tracking-wider ${tone.text}`}>
+                    {i === 0 ? "Apply after this course" : level.stage}
+                  </p>
+                  <ul className="divide-y divide-line">
+                    {level.roles.map((r) => (
+                      <li key={r.title} className="px-5 py-4">
+                        <h3 className="flex items-center gap-2 font-display font-bold">
+                          <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${tone.step}`} />
+                          {r.title}
+                        </h3>
+                        <p className="mt-1 pl-3.5 text-sm leading-relaxed text-ink-soft">{r.body}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Fills the space beside the long Level 1 list and points learners back to it */}
+          <div className="relative overflow-hidden rounded-2xl bg-ink p-7 text-white sm:p-8 lg:col-span-2">
+            <div aria-hidden className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand/40 blur-3xl" />
+            <p className="relative inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-mint">
+              <ArrowIcon className="h-4 w-4 rotate-180" />
+              Start at Level 1
+            </p>
+            <h3 className="relative mt-3 max-w-md font-display text-2xl font-bold leading-snug sm:text-3xl">
+              Every role on this ladder starts with the same fundamentals.
+            </h3>
+            <p className="relative mt-3 max-w-lg text-white/70">
+              Learn them in 8 weeks, live and in Hinglish, and finish with a real project to show in your
+              interviews.
+            </p>
+            <div className="relative mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#book-call"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-ink transition-colors hover:bg-paper"
+              >
+                Book a career call
+                <ArrowIcon className="h-4 w-4" />
+              </a>
+              <a
+                href="#curriculum"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 font-semibold transition-colors hover:border-white/50"
+              >
+                See the curriculum
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

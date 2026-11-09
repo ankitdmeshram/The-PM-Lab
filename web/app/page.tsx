@@ -10,7 +10,7 @@ import {
   Course,
   Curriculum,
   Faq,
-  Resources,
+  Roles,
 } from "./_components/sections";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
         <Build />
         <ClassFormat />
         <Certificate />
-        <Resources />
+        <Roles />
         <Faq />
         <BookCall />
       </main>

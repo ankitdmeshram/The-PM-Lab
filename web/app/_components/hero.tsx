@@ -59,7 +59,7 @@ export function Hero() {
             {stats.map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
-                <dd className="font-display text-2xl font-bold sm:text-3xl">{s.value}</dd>
+                <dd className="whitespace-nowrap font-display text-xl font-bold sm:text-3xl">{s.value}</dd>
                 <dd className="mt-1 text-xs text-ink-soft sm:text-sm">{s.label}</dd>
               </div>
             ))}
