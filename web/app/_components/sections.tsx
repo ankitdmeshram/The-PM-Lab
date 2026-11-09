@@ -362,11 +362,10 @@ function CertificatePreview() {
 
 /* ---------- Career ladder: entry level to leadership ---------- */
 export function Roles() {
-  // One style per level: step colour, step height (desktop) and accent text.
-  const levels = [
-    { step: "bg-mint", height: "lg:h-20", text: "text-mint", soft: "bg-mint-soft" },
-    { step: "bg-brand", height: "lg:h-32", text: "text-brand", soft: "bg-brand-soft" },
-    { step: "bg-accent", height: "lg:h-44", text: "text-accent", soft: "bg-accent-soft" },
+  const tones = [
+    { dot: "bg-mint", badge: "bg-mint-soft text-mint" },
+    { dot: "bg-brand", badge: "bg-brand-soft text-brand" },
+    { dot: "bg-accent", badge: "bg-accent-soft text-accent" },
   ];
   return (
     <section id="roles" className="scroll-mt-20 py-20 sm:py-24">
@@ -377,78 +376,40 @@ export function Roles() {
           body="This course gets you ready for entry-level roles. From there, experience takes you to project manager and beyond."
         />
 
-        <div className="mt-14 grid items-start gap-8 lg:grid-cols-3 lg:grid-rows-[auto_1fr] lg:gap-5">
-          {careerLevels.map((level, i) => {
-            const tone = levels[i];
-            return (
-              <div key={level.stage} className={`flex flex-col ${i === 0 ? "lg:row-span-2" : ""}`}>
-                {/* The step: grows taller at each level on desktop */}
-                <div className="flex lg:h-44 lg:items-end">
-                  <div
-                    className={`relative flex w-full items-end justify-between gap-3 rounded-t-2xl px-5 py-4 text-white ${tone.step} ${tone.height}`}
-                  >
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-white/75">
-                        Level {i + 1} · {level.years}
-                      </p>
-                      <p className="mt-1 font-display text-2xl font-bold">{level.step}</p>
-                    </div>
-                    <span className="font-display text-5xl font-bold leading-none text-white/25">{i + 1}</span>
-                  </div>
-                </div>
+        <ol className="mt-14">
+          {careerLevels.map((level, i) => (
+            <li key={level.stage} className="relative pb-12 pl-14 last:pb-0 sm:pl-20">
+              {/* line connecting this level to the next one */}
+              {i < careerLevels.length - 1 && (
+                <span aria-hidden className="absolute bottom-0 left-5 top-10 w-px bg-line sm:left-6 sm:top-12" />
+              )}
+              <span
+                className={`absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full font-display font-bold text-white ring-8 ring-paper sm:h-12 sm:w-12 sm:text-lg ${tones[i].dot}`}
+              >
+                {i + 1}
+              </span>
 
-                {/* Roles at this level */}
-                <div className="rounded-b-2xl border border-t-0 border-line bg-white">
-                  <p className={`px-5 pt-4 text-xs font-semibold uppercase tracking-wider ${tone.text}`}>
-                    {i === 0 ? "Apply after this course" : level.stage}
-                  </p>
-                  <ul className="divide-y divide-line">
-                    {level.roles.map((r) => (
-                      <li key={r.title} className="px-5 py-4">
-                        <h3 className="flex items-center gap-2 font-display font-bold">
-                          <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${tone.step}`} />
-                          {r.title}
-                        </h3>
-                        <p className="mt-1 pl-3.5 text-sm leading-relaxed text-ink-soft">{r.body}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 className="font-display text-2xl font-bold">{level.step}</h3>
+                <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${tones[i].badge}`}>
+                  {level.stage} · typically {level.years}
+                </span>
               </div>
-            );
-          })}
+              {i === 0 && (
+                <p className="mt-2 text-sm text-ink-soft">Roles you can apply for after this course.</p>
+              )}
 
-          {/* Fills the space beside the long Level 1 list and points learners back to it */}
-          <div className="relative overflow-hidden rounded-2xl bg-ink p-7 text-white sm:p-8 lg:col-span-2">
-            <div aria-hidden className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand/40 blur-3xl" />
-            <p className="relative inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-mint">
-              <ArrowIcon className="h-4 w-4 rotate-180" />
-              Start at Level 1
-            </p>
-            <h3 className="relative mt-3 max-w-md font-display text-2xl font-bold leading-snug sm:text-3xl">
-              Every role on this ladder starts with the same fundamentals.
-            </h3>
-            <p className="relative mt-3 max-w-lg text-white/70">
-              Learn them in 8 weeks, live and in Hinglish, and finish with a real project to show in your
-              interviews.
-            </p>
-            <div className="relative mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#book-call"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-ink transition-colors hover:bg-paper"
-              >
-                Book a career call
-                <ArrowIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="#curriculum"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 font-semibold transition-colors hover:border-white/50"
-              >
-                See the curriculum
-              </a>
-            </div>
-          </div>
-        </div>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {level.roles.map((r) => (
+                  <article key={r.title} className="rounded-2xl border border-line bg-white p-5">
+                    <h4 className="font-display text-lg font-bold leading-snug">{r.title}</h4>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">{r.body}</p>
+                  </article>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
