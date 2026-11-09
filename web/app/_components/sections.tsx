@@ -7,13 +7,15 @@ import {
   course,
   curriculum,
   deliverables,
-  enquiryStatuses,
+  dailyUpdates,
   faqs,
   careerLevels,
   site,
   tools,
 } from "../_content/home";
-import { ArrowIcon, CheckIcon, LogoMark, PlusIcon, WhatsAppIcon, audienceIcons } from "./icons";
+import { ArrowIcon, CheckIcon, PlusIcon, WhatsAppIcon, audienceIcons } from "./icons";
+import { LogoMark } from "./logo";
+import { UpdatesForm } from "./updates-form";
 
 function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) {
   return (
@@ -100,10 +102,10 @@ export function Course() {
                 ))}
               </ul>
               <a
-                href="#book-call"
+                href="#updates"
                 className="mt-7 flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 font-semibold text-white transition-colors hover:bg-brand"
               >
-                Talk to us about the next batch
+                Get batch updates on WhatsApp
                 <ArrowIcon className="h-4 w-4" />
               </a>
             </div>
@@ -328,7 +330,7 @@ function CertificatePreview() {
           <span aria-hidden className="absolute bottom-3 right-3 h-6 w-6 rounded-br-lg border-b-2 border-r-2 border-accent" />
 
           <div className="flex items-center justify-center gap-2">
-            <LogoMark className="h-7 w-7 text-ink" />
+            <LogoMark className="h-8 w-8 rounded-md" />
             <span className="font-display font-bold">{site.name}</span>
           </div>
           <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-ink-soft">
@@ -437,76 +439,36 @@ export function Faq() {
   );
 }
 
-/* ---------- Final call to action / lead form ---------- */
-export function BookCall() {
+/* ---------- WhatsApp daily updates sign-up ---------- */
+export function DailyUpdates() {
   return (
-    <section id="book-call" className="scroll-mt-20 py-20 sm:py-24">
+    <section id="updates" className="scroll-mt-20 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="relative grid gap-10 overflow-hidden rounded-[2rem] bg-ink p-8 text-white sm:p-12 lg:grid-cols-2">
           <div aria-hidden className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand/40 blur-3xl" />
           <div className="relative">
-            <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Not sure if this course is right for you? Talk to us, free.
-            </h2>
-            <p className="mt-4 text-lg text-white/70">
-              In a 20-minute call we&apos;ll understand your background, answer your questions about the course
-              and the next batch. No pressure.
+            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-[#25d366]">
+              <WhatsAppIcon className="h-4 w-4" />
+              Daily updates
             </p>
-            <a
-              href={`https://wa.me/${site.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#25d366] px-5 py-3 font-semibold text-ink transition hover:brightness-95"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              Chat on WhatsApp instead
-            </a>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+              {dailyUpdates.title}
+            </h2>
+            <p className="mt-4 text-lg text-white/70">{dailyUpdates.body}</p>
+            <ul className="mt-7 space-y-3">
+              {dailyUpdates.points.map((p) => (
+                <li key={p} className="flex items-start gap-3">
+                  <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-[#25d366]" />
+                  <span className="text-white/90">{p}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-7 text-sm text-white/50">One message a day. Reply STOP anytime to unsubscribe.</p>
           </div>
 
-          {/* TODO: connect this form to a server action, Google Sheet or CRM */}
-          <form className="relative grid gap-3 rounded-2xl bg-white p-6 text-ink">
-            <Field id="name" label="Full name" placeholder="Your name" />
-            <Field id="phone" label="Phone number" placeholder="+91" type="tel" />
-            <div>
-              <label htmlFor="status" className="text-sm font-medium">I am a…</label>
-              <select
-                id="status"
-                name="status"
-                className="mt-1.5 h-11 w-full rounded-xl border border-line bg-paper px-3 outline-none focus:border-brand"
-                defaultValue=""
-              >
-                <option value="" disabled>Select one</option>
-                {enquiryStatuses.map((s) => (
-                  <option key={s}>{s}</option>
-                ))}
-              </select>
-            </div>
-            <button
-              type="submit"
-              className="mt-2 h-12 rounded-xl bg-accent font-semibold text-white transition hover:brightness-95"
-            >
-              Book my free call
-            </button>
-            <p className="text-center text-xs text-ink-soft">We&apos;ll call you within 24 hours.</p>
-          </form>
+          <UpdatesForm />
         </div>
       </div>
     </section>
-  );
-}
-
-function Field({ id, label, placeholder, type = "text" }: { id: string; label: string; placeholder: string; type?: string }) {
-  return (
-    <div>
-      <label htmlFor={id} className="text-sm font-medium">{label}</label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        required
-        placeholder={placeholder}
-        className="mt-1.5 h-11 w-full rounded-xl border border-line bg-paper px-3 outline-none focus:border-brand"
-      />
-    </div>
   );
 }

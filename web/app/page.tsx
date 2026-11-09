@@ -3,9 +3,9 @@ import { Header } from "./_components/header";
 import { Hero } from "./_components/hero";
 import {
   Audience,
-  BookCall,
   Build,
   Certificate,
+  DailyUpdates,
   ClassFormat,
   Course,
   Curriculum,
@@ -27,7 +27,7 @@ export default function Home() {
         <Certificate />
         <Roles />
         <Faq />
-        <BookCall />
+        <DailyUpdates />
       </main>
       <Footer />
       <WhatsAppFloat />

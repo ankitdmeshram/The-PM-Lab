@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { nav, site } from "../_content/home";
-import { LogoMark, MenuIcon } from "./icons";
+import { MenuIcon } from "./icons";
+import { LogoMark } from "./logo";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5">
-          <LogoMark className="h-8 w-8 text-ink" />
+          <LogoMark className="h-9 w-9 rounded-lg" />
           <span className="font-display text-lg font-bold tracking-tight">{site.name}</span>
         </Link>
 
@@ -21,10 +22,10 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#book-call"
+            href="#updates"
             className="hidden rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand sm:inline-block"
           >
-            Book a free call
+            Get daily updates
           </a>
 
           {/* Mobile menu: native <details> so no client JS is needed */}
@@ -46,10 +47,10 @@ export function Header() {
                 </a>
               ))}
               <a
-                href="#book-call"
+                href="#updates"
                 className="mt-1 block rounded-xl bg-ink px-3 py-2.5 text-center text-sm font-semibold text-white"
               >
-                Book a free call
+                Get daily updates
               </a>
             </div>
           </details>

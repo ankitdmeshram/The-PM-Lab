@@ -78,17 +78,6 @@ export function WhatsAppIcon({ className }: IconProps) {
   );
 }
 
-export function LogoMark({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 32 32" aria-hidden className={className}>
-      <rect width="32" height="32" rx="9" fill="currentColor" />
-      <rect x="8" y="9" width="10" height="3.2" rx="1.6" fill="#fff" />
-      <rect x="8" y="14.4" width="16" height="3.2" rx="1.6" fill="#ff7a45" />
-      <rect x="8" y="19.8" width="7" height="3.2" rx="1.6" fill="#fff" />
-    </svg>
-  );
-}
-
 export const audienceIcons = {
   cap: CapIcon,
   switch: SwitchIcon,

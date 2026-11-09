@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { nav, site } from "../_content/home";
-import { LogoMark, WhatsAppIcon } from "./icons";
+import { WhatsAppIcon } from "./icons";
+import { LogoBadge } from "./logo";
 
 export function Footer() {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <Link href="/" className="flex items-center gap-2.5">
-            <LogoMark className="h-8 w-8 text-ink" />
-            <span className="font-display text-lg font-bold">{site.name}</span>
+          <Link href="/" className="inline-block" aria-label={site.name}>
+            <LogoBadge className="h-24 w-24 rounded-full" />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft">
             Project management training for college students and early-career professionals.

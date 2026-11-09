@@ -7,6 +7,9 @@ export const site = {
   whatsappNumber: "919999999999",
   email: "hello@thepmlab.in", // PLACEHOLDER
   phone: "+91 99999 99999", // PLACEHOLDER
+  // Google Apps Script web app URL that saves WhatsApp update sign-ups to a Google Sheet.
+  // See README ("WhatsApp updates form"). While empty, the form opens WhatsApp instead.
+  updatesFormEndpoint: "",
   nextBatch: "December 2026", // PLACEHOLDER
 };
 
@@ -338,7 +341,18 @@ export const careerLevels = [
   },
 ];
 
-// Options for the "I am a…" dropdown in the enquiry form.
+// WhatsApp daily updates sign-up section.
+export const dailyUpdates = {
+  title: "Get daily project management updates on WhatsApp",
+  body: "One short message a day to help you learn project management and stay ready for your first PM role.",
+  points: [
+    "A quick PM concept or tool tip, explained simply",
+    "Common PM interview questions and how to answer them",
+    "New batch dates and course announcements",
+  ],
+};
+
+// Options for the "I am a…" dropdown in the updates form.
 export const enquiryStatuses = [
   "College student",
   "Fresh graduate",

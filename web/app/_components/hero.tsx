@@ -41,10 +41,10 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#book-call"
+              href="#updates"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition-colors hover:bg-brand-dark"
             >
-              Book a free career call
+              Get daily updates
               <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
