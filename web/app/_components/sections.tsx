@@ -116,6 +116,10 @@ export function Course() {
                 </span>
               </div>
               <p className="mt-1 text-sm text-ink-soft">One-time fee for the full 8-week course</p>
+              <p className="mt-4 flex items-start gap-2.5 rounded-xl bg-brand-soft px-3.5 py-3 text-sm font-medium text-ink">
+                <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                {course.trustLine}
+              </p>
 
               <a
                 href={site.enrollUrl}
@@ -375,8 +379,9 @@ function CertificatePreview() {
 
           <div className="mt-8 flex items-end justify-between text-left">
             <div>
-              <div className="h-px w-24 bg-ink/30" />
-              <p className="mt-1.5 text-[11px] text-ink-soft">Lead Instructor</p>
+              <p className="w-28 pb-1 font-display text-sm font-bold italic text-brand">{site.name}</p>
+              <div className="h-px w-28 bg-ink/30" />
+              <p className="mt-1.5 text-[11px] text-ink-soft">Issued by</p>
             </div>
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg shadow-accent/30">
               <CheckIcon className="h-7 w-7" />

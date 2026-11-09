@@ -56,6 +56,8 @@ export const audiences = [
 export const course = {
   title: "Project Management: From Fundamentals to Real-World Execution",
   tagline: "Learn. Plan. Execute. Deliver.",
+  // Shown next to the price on the course card.
+  trustLine: "Taught by a working tech lead who manages real software projects.",
   intro:
     "Not just a Jira or Scrum course. You'll learn how to actually manage a project: planning, assigning work, handling delays, communicating with stakeholders, managing risks and delivering outcomes.",
   facts: [
