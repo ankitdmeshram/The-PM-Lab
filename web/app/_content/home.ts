@@ -3,10 +3,12 @@
 
 export const site = {
   name: "The PM Lab",
+  // Cashfree payment page for enrolling in the course.
+  enrollUrl: "https://payments.cashfree.com/forms/project-management-course",
   // PLACEHOLDER: real WhatsApp number in international format, digits only.
-  whatsappNumber: "919999999999",
+  whatsappNumber: "918485881130",
   email: "hello@thepmlab.in", // PLACEHOLDER
-  phone: "+91 99999 99999", // PLACEHOLDER
+  phone: "+91 848588 1130", // PLACEHOLDER
   // Google Apps Script web app URL that saves WhatsApp update sign-ups to a Google Sheet.
   // See README ("WhatsApp updates form"). While empty, the form opens WhatsApp instead.
   updatesFormEndpoint: "",

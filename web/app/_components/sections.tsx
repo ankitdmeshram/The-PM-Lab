@@ -102,11 +102,19 @@ export function Course() {
                 ))}
               </ul>
               <a
-                href="#updates"
-                className="mt-7 flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 font-semibold text-white transition-colors hover:bg-brand"
+                href={site.enrollUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition-colors hover:bg-brand-dark"
               >
-                Get batch updates on WhatsApp
+                Enroll now
                 <ArrowIcon className="h-4 w-4" />
+              </a>
+              <a
+                href="#updates"
+                className="mt-3 block text-center text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
+              >
+                Not ready yet? Get batch updates on WhatsApp
               </a>
             </div>
           </div>

@@ -22,10 +22,12 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#updates"
-            className="hidden rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand sm:inline-block"
+            href={site.enrollUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-full bg-brand px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark sm:inline-block"
           >
-            Get daily updates
+            Enroll now
           </a>
 
           {/* Mobile menu: native <details> so no client JS is needed */}
@@ -47,8 +49,16 @@ export function Header() {
                 </a>
               ))}
               <a
+                href={site.enrollUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block rounded-xl bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white"
+              >
+                Enroll now
+              </a>
+              <a
                 href="#updates"
-                className="mt-1 block rounded-xl bg-ink px-3 py-2.5 text-center text-sm font-semibold text-white"
+                className="mt-1 block rounded-xl px-3 py-2.5 text-center text-sm font-medium hover:bg-paper"
               >
                 Get daily updates
               </a>
