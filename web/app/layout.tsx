@@ -15,7 +15,7 @@ const body = Inter({
 export const metadata: Metadata = {
   title: "The PM Lab | Practical Tech Training for College Students & Freshers",
   description:
-    "Live, hands-on courses in Hinglish for college students and freshers: Project Management and AI Full Stack Development, with real projects and career preparation.",
+    "Live, hands-on training in Hinglish for college students and freshers, with real projects and career preparation.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

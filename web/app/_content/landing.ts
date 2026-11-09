@@ -1,9 +1,11 @@
+import { aiCourse } from "./ai-fullstack";
+
 // Copy for the homepage (/), which introduces The PM Lab and links to each course.
 
 export const homeNav = [
   { label: "Courses", href: "/#courses" },
   { label: "Project Management", href: "/ai-project-management" },
-  { label: "AI Full Stack", href: "/ai-full-stack-developer" },
+  ...(aiCourse.listed ? [{ label: "AI Full Stack", href: aiCourse.slug }] : []),
   { label: "Why us", href: "/#why" },
 ];
 
@@ -36,7 +38,7 @@ export const homeUpdates = {
   title: "Get daily career updates on WhatsApp",
   body: "One short message a day to help you learn, build skills and get ready for your first role in tech.",
   points: [
-    "A quick tip on project management, coding or AI",
+    "A quick project management or career tip",
     "Common interview questions and how to answer them",
     "New batch dates and course announcements",
   ],

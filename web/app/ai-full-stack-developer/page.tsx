@@ -18,6 +18,8 @@ import { DailyUpdates, Faq } from "../_components/sections";
 
 export const metadata: Metadata = {
   title: "AI Full Stack Developer Course | The PM Lab",
+  // Keep the page out of search results while the course is private.
+  robots: aiCourse.listed ? undefined : { index: false, follow: false },
   description:
     "6-month AI Full Stack Development programme for college students and freshers: React, TypeScript, Node.js, MySQL, OpenAI, RAG and AI agents, with 9+ projects and a full-time team internship from Day 1. Taught in Hinglish.",
 };

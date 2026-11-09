@@ -1,3 +1,5 @@
+import { aiCourse } from "./ai-fullstack";
+
 // All homepage copy lives here so it can be edited without touching layout code.
 // Anything marked PLACEHOLDER must be replaced with real data before launch.
 
@@ -23,7 +25,7 @@ export const nav = [
   { label: "Curriculum", href: "/ai-project-management#curriculum" },
   { label: "Certificate", href: "/ai-project-management#certificate" },
   { label: "FAQ", href: "/ai-project-management#faq" },
-  { label: "AI Full Stack", href: "/ai-full-stack-developer" },
+  ...(aiCourse.listed ? [{ label: "AI Full Stack", href: aiCourse.slug }] : []),
 ];
 
 // Facts shown under the hero buttons.
@@ -361,7 +363,7 @@ export const dailyUpdates = {
 
 export const courseLinks = [
   { label: "Project Management", href: "/ai-project-management" },
-  { label: "AI Full Stack Development", href: "/ai-full-stack-developer" },
+  ...(aiCourse.listed ? [{ label: "AI Full Stack Development", href: aiCourse.slug }] : []),
 ];
 
 export const legalLinks = [

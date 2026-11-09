@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { aiCourse } from "../_content/ai-fullstack";
 import { courseLinks, legalLinks, site } from "../_content/home";
 import { WhatsAppIcon } from "./icons";
 import { LogoBadge } from "./logo";
@@ -12,7 +13,9 @@ export function Footer() {
             <LogoBadge className="h-24 w-24 rounded-full" />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft">
-            Practical, live training in project management and AI full stack development for college students and freshers.
+            {aiCourse.listed
+              ? "Practical, live training in project management and AI full stack development for college students and freshers."
+              : "Practical, live project management training for college students and freshers."}
           </p>
         </div>
         <div>

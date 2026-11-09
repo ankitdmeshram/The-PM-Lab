@@ -56,6 +56,7 @@ export function CourseCards() {
       facts: ["8 weeks", "40+ hours of live training", "Taught in Hinglish", "Course certificate"],
       price: site.price,
       cta: "View course",
+      listed: true,
     },
     {
       href: aiCourse.slug,
@@ -69,14 +70,17 @@ export function CourseCards() {
       facts: ["6 months", "96 hours of live training", "Full-time internship from Day\u00a01", "Two certificates"],
       price: aiCourse.price,
       cta: "View programme",
+      listed: aiCourse.listed,
     },
-  ];
+  ].filter((c) => c.listed);
 
   return (
     <section id="courses" className="scroll-mt-20 pb-20 sm:pb-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-ink-soft">Our courses</p>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <p className="text-center text-sm font-semibold uppercase tracking-widest text-ink-soft">
+          {cards.length > 1 ? "Our courses" : "Our course"}
+        </p>
+        <div className={`mt-6 grid gap-6 ${cards.length > 1 ? "md:grid-cols-2" : "mx-auto max-w-xl"}`}>
           {cards.map((c) => {
             const Icon = c.icon;
             return (

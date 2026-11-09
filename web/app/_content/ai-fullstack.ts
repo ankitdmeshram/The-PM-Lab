@@ -4,6 +4,9 @@
 export const aiCourse = {
   name: "AI Full Stack Development Programme",
   slug: "/ai-full-stack-developer",
+  // Private for now: the page works at its URL but isn't linked anywhere on the site
+  // and asks search engines not to index it. Set to true to list it publicly.
+  listed: false,
   // Cashfree payment link. If emptied, the page shows "Enquire on WhatsApp" instead.
   enrollUrl: "https://payments.cashfree.com/forms/ai-full-stack-developer",
   // Course fee in rupees. The page shows the discount % automatically. Set to null to hide the price.
